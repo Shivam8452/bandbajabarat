@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <title>SignUp</title>
+</head>
+<body>
+    {{#if message}}
+    <div class="{{message.type}} show">
+        <span class="fa fa-exclamation-circle"></span>
+        <span class="msg">{{message.type}}:{{message.intro}}</span>
+        <span class="close-btn">
+            <span  class="fa fa-times" onclick='Close()'></span>
+        </span>
+    </div>
+    {{/if}}
+    
+<div class="body">
+    <div class="signup">
+        <h3>Create an Account</h3>
+        <form action="/register" method="post">
+            <label for="Name">
+                <span>name</span>
+                <input type="text" name="Name" placeholder="name" required>
+            </label>
+            <label for="Email">
+                <span>email</span>
+                <input type="email" name="Email" placeholder="user123@gmail.com" required>
+            </label>
+            <label for="Password">
+                <span>password</span>
+                <input type="password" name="Password" placeholder="password" required>
+            </label>
+            <label for="ConfirmPassword">
+                <span>password</span>
+                <input type="password" name="ConfirmPassword" placeholder="confirm password" required>
+            </label>
+            <button type="submit">Get started</button>
+        </form>
+        <div class="or">OR</div>
+        
+        <a href="/login"><button class="login">Login</button></a>
+    </div>
+    </div>
+</body>
+<script>
+    setTimeout(function(){
+        $('.Warning').removeClass("show");
+        $('.Warning').addClass('hide')
+
+    },5000)
+    $('.close-btn').click(function(){
+        $('.Warning').addClass("hide");
+        $('.Warning').removesClass('show')
+    })
+    setTimeout(function(){
+        $('.Success').removeClass("show");
+        $('.Success').addClass('hide')
+
+    },5000)
+    $('.close-btn').click(function(){
+        $('.Success').addClass("hide");
+        $('.Success').removesClass('show')
+    })
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    {{#if services}}
+    <section class="cart">
+        <div class="section-heading">
+            <h1>My Booking list</h1>
+        </div>
+        <div class="order">
+            <div class="summary">
+                <img src="/icons/cart-dark.svg" alt="">
+                <h1>Booking Summary</h1>
+            </div>
+            {{#each services}}
+            <div class="list">
+                <div class="list-item">
+                <img src="/Cars/{{this.item.Car_image}}" alt="" class="prod-img">
+                <h4 class="flex-1">{{this.item.name}}</h4>
+               <span class="flex-1">{{this.qty}} unit</span>
+                <span class="price">&#8377</span><span class="flex-1 price"> {{this.price}}</span>
+               <div class="wrapper">
+                <div class="icon btn-all ">
+                    <div class="tooltip">Remove All</div>
+                    <a href="/remove/{{this.item._id}}" class="btn-sec"><i class="fa fa-close"></i></a>
+               </div>
+               <div class="icon btn-one">
+                   <div class="tooltip">Remove by 1</div>
+                   <a href="/reduce/{{this.item._id}}" class="btn-sec"><i class="fa fa-trash-o"></i></a>
+
+               </div>
+               </div>
+               </div>
+            </div>
+            <hr>
+            {{/each}}
+            <div class="total">
+                <span>Total Amount: </span>
+                <span>&#8377 {{this.totalPrice}}</span>
+            </div>
+            <div class="btn-group">
+                <a href="/EventDetail" class="btn">Proceed To Payment</a>
+            </div>
+        </div>
+        
+    </section>
+{{else}}
+    <section class="empty-cart">
+        <div class="container">
+            <h1 class="head">List Empty</h1>
+            <p>Looks like, You did not make a list. <br>
+                Add items to your list Now.
+            </p>
+            <img class="image" src="/images/3024051.jpg" alt="">
+            <div class="btn-group">
+            <a href="/Cars" class="btn">Go Back</a>
+            </div>
+
+        </div>
+    </section>
+{{/if}}
+    
+    
+</body>
+</html>

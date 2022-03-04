@@ -1,0 +1,244 @@
+body{
+  font-family: 'Baloo Bhai 2', 'cursive';   
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-color: rgb(11, 78, 179);
+}
+
+.heading{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 250px;
+  align-items: center;
+  color: #fff;
+  justify-content: center;
+  font-size: 18px;
+}
+.heading p{
+  letter-spacing: 5px;
+}
+.heading::before{
+  content: '';
+  position: absolute;
+  background: url("/images/bg.jpg") no-repeat center center/cover;
+  width: 100%;
+  height: 250px;
+  z-index: -1;
+  opacity: 0.85;
+}
+.section-heading{
+  font-family: 'Bree Serif', serif;
+  text-align:center;
+  Position:relative;
+  margin: 30px;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+.section-heading:after{
+  content:'';
+  display:block;
+  width: 100%;
+  height:30px;
+  background-image:url(/icons/hr.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  bottom:-40px;
+}
+.services-charge{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  font-size: 16px;
+}
+.services-charge span{
+  margin-top: 3px ;
+  margin-left: 5px;
+}
+label{
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+label.required{
+  position: relative; 
+}
+label.required:after{
+  content: '*';
+  margin-left: 2px;
+  color: #b90000;
+}
+input:focus{
+  border: 1px solid var(--primary-color);
+}
+
+input{
+display: block;
+background-color: #f0f0f0;
+width: 350px;
+padding: 10px;
+border: none;
+outline: none;
+font-family: 'Baloo Bhai 2', 'cursive';
+font-weight: bold;
+}
+textarea{
+  display: block;
+  width: 350px;
+  padding: 0.75rem;
+  outline: none;
+  border: none;
+  height: 100px;
+  background-color: #f0f0f0;
+}
+textarea:focus{
+border: 1px solid var(--primary-color);
+}
+select{
+  display: block;
+  background-color: #f0f0f0;
+  border: none;
+  outline:none;
+  width: 350px;
+  height: 40px;
+  text-transform: uppercase;
+}
+select:focus{
+  border: 1px solid var(--primary-color);
+}
+.form{
+  margin: 5px;
+  background: #f0f0f0;
+}
+.steps{
+  border-top: 1px solid #232b38;
+  border-left: 1px solid #232b38;
+  border-right: 1px solid #232b38;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 350px;
+  text-align: center;
+  padding: 10px;
+  background: #f0f0f0;
+  text-transform: uppercase;
+}
+.row{
+  border: 1px solid #232b38;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+.column{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 25px;
+}
+.input-group{
+  margin: 25px;
+}
+.img{
+  font-size: 16px;
+  background: #fff;
+  border-radius: 0.25rem;
+  width: 350px;
+  outline: none;
+  background: #f0f0f0;
+  font-size: 14px;
+}
+::-webkit-file-upload-button{
+  color: white;
+  background: var(--primary-color);
+  border-radius: 0.25rem;
+  box-shadow: 1px 0 1px rgba(0,0,0,0.6);
+  font-size: 14px;
+}
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-reset {
+  padding: 0.75rem;
+  display: block;
+  text-decoration: none;
+  background-color:#b90000;
+  color: #f3f3f3;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px;
+}
+.btn-reset:hover{
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #b90000;
+}
+.btn-submit{
+  padding: 0.75rem;
+  display: block;
+  text-decoration: none;
+  background-color:var(--primary-color);
+  color: #f3f3f3;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px;
+}
+.btn-submit:hover{
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+@media screen and (max-width:1260px){
+  input{
+    width: 300px;
+  }
+  select{
+    width: 300px;
+  }
+  textarea{
+    width: 300px;
+  }
+  .img{
+    width: 300px;
+  }
+
+}
+@media screen and (max-width:1114px){
+  input{
+    width: 280px;
+  }
+  select{
+    width: 280px;
+  }
+  textarea{
+    width: 280px;
+  }
+  .img{
+    width: 280px;
+  }
+
+}
+@media screen and (max-width:800px) {
+  input{
+    width: 250px;
+  }
+  select{
+    width: 250px;
+  }
+  textarea{
+    width: 250px;
+  }
+  .img{
+    width: 250px;
+  }
+}

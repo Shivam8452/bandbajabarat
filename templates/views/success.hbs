@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="/css/success.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <img src="/icons/razorpay-logo-white.svg" alt="logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="content">
+        <div class="card">
+        <h5 class="card-header">Payment Successful</h5>
+
+        <div class="card-body">
+            <p class="card-text">Congratulation!</p>
+
+            <dl class="rcpt">
+            <div class="item">
+                <dt class="rcpt-head">Order ID:</dt>
+                <dd class="rcpt-value">{{shopData.orderId}}</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">transcation ID:</dt>
+                <dd class="rcpt-value">{{shopData.paymentId}}</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">Signature:</dt>
+                <dd class="rcpt-value">{{shopData.signature}}</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">Amount:</dt>
+                <dd class="rcpt-value">&#8377 {{divide shopData.amount 100}} /-</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">Created at:</dt>
+                <dd class="rcpt-value">{{shopData.createdAt}}</dd>
+            </div>
+            </dl>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+body{
+    font-family: 'Baloo Bhai 2', 'cursive';
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.empty-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    align-items: center;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
+}
+.head{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.container p{
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.image{
+    width: 100%;
+    object-fit: contain;
+    box-sizing: border-box;
+}
+.btn{
+    padding: 3px 10px;
+    border: 1px solid #232b38;
+    background-color:#232b38;
+    color: white;
+    margin: 7px;
+    font-size: 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: white;
+    color: #232b38;
+    transition: 0.4s;
+}
+.cart{
+    margin-top: 10px;
+}
+.section-heading{
+width: 100%;
+text-align:center;
+margin-bottom:50px;
+}
+.section-heading h1{
+text-transform: uppercase;
+font-size: 25px;
+color: #000;
+}
+.section-heading h1:after{
+content:'';
+display:block;
+width: 100%;
+height: 30px;
+background-image:url(../icons/hr.svg);
+background-repeat: no-repeat;
+background-position: center;
+margin: auto;
+}
+.back{
+    background-color: #f0f0f0;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.order{
+    width: 70%;
+    margin: auto;
+    
+}
+.summary{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding-bottom: 4px;
+    justify-content: center; 
+    
+}
+.summary img{
+    width: 30px;
+    height: 30px;
+}
+.summary h1{
+    margin-left: 7px;
+    font-size: 16px;
+    
+}
+.list span:nth-child(3){
+    font-size: 14px;
+}
+.list-item{
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+.list-item h4{
+    margin-left: 4px;
+    font-size: 14px;
+}
+
+.prod-img{
+    width: 150px;
+    border-radius: 5px;
+    margin: 12px;
+}
+.price{
+    font-size: 14px;
+}
+.flex-1{
+    flex: 1;
+}
+.total{
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.total span:nth-child(2){
+   color:#ff3636;
+}
+.btn-group{
+    text-align: right;
+}
+.wrapper{
+    display: inline-flex;
+}
+.btn-sec{
+    color: #000;
+    text-decoration: none;
+}
+.btn-sec:hover{
+    color: #ffffff;
+}
+  
+.wrapper .icon {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+  
+.wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    margin: auto;
+    background-color: #ffffff;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+.wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background-color: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+.wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+  
+.wrapper .icon:hover a,
+.wrapper .icon:hover .tooltip{
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .btn-one:hover,
+.wrapper .btn-one:hover .tooltip,
+.wrapper .btn-one:hover .tooltip::before {
+  background-color: #3b5999;
+  color: #ffffff;
+}
+
+.wrapper .btn-all:hover,
+.wrapper .btn-all:hover .tooltip,
+.wrapper .btn-all:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+@media(max-width:800px){
+    .list-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    hr{
+        width: 100%;
+        text-align: center;
+    }
+}

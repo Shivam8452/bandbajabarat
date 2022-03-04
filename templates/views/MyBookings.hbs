@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+     <link rel="stylesheet" href="/css/mybookings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+      <div class="section-heading">
+        <h1>My Bookings</h1>
+      </div>
+  <table class="rwd-table">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Total Paid</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      {{#each data}}
+      {{#ifCond this.status "paid"}}
+      {{#checkIf this.order_status 'Completed'}}
+      <tr>
+        <td data-th="Name">
+          {{this.cart.name}}
+        </td>
+        <td data-th="Total Paid">
+          &#8377 {{this.cart.price}} /-
+        </td>
+        <td data-th="Address1">
+          {{this.from_address}}
+        </td>
+        <td data-th="Address2">
+          {{this.to_address}}
+        </td>
+        <td data-th="Date">
+          {{this.event_date}}
+        </td>
+        <td data-th="Status">
+          <select>
+              <option>{{this.order_status}}</option>
+          </select>
+        </td>
+        <td data-th="Action">
+          <a href="/cancelServiceBooking/{{this._id}}" class="btn">Cancel</a>
+        </td>
+      </tr>
+      {{/checkIf}}
+      {{/ifCond}}
+      {{/each}}
+      {{#each doc}}
+      {{#ifCond this.status "paid"}}
+      {{#checkIf this.order_status 'Completed'}}
+      <tr>
+        <td data-th="Name">
+        {{#each this.items}}
+          {{this.item.name}}
+          &nbsp; {{this.qty}} unit
+          <br>
+        {{/each}}
+        </td>
+        <td data-th="Total Paid">
+          &#8377 {{this.cart.totalPrice}} /-
+        </td>
+        <td data-th="Address1">
+          {{this.from_address}}
+        </td>
+        <td data-th="Address2">
+          {{this.to_address}}
+        </td>
+        <td data-th="Date">
+          {{this.event_date}}
+        </td>
+        <td data-th="Status">
+          <select>
+              <option>{{this.order_status}}</option>
+          </select>
+        </td>
+        <td data-th="Action">
+          <a href="/cancelBooking/{{this._id}}" class="btn">Cancel</a>
+        </td>
+      </tr>
+      {{/checkIf}}
+      {{/ifCond}}
+      {{/each}}
+      
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

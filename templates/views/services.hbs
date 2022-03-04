@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="/css/services.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="search">
+    <form class="form-search">
+        <i class="fa fa-search"></i>
+            <input type="text" name="mysearch" id="mysearch1" placeholder="search by name here">
+            {{!-- <button class="search-btn" id="search-btn">Search</button>            --}}
+        </form>
+    </div>
+<div class="section-heading">
+        <h1>Services</h1>
+    </div>
+    <p>Set your event date here:</p>
+<div class="box">
+    <input type="date" name="mydate" id="mydate1"  title="mm/dd/yyyy" class="input" >
+</div>
+
+<div class="container">
+  <!--Product Grid-->
+  <div id="div1">
+    <section class="section-grid">
+    <div class="grid-prod">
+        {{#each  services as |shop|}} 
+      <div id="{{shop._id}}" class="prod-grid">
+          <img src="https://firebasestorage.googleapis.com/v0/b/bandbajabarat-684ea.appspot.com/o/verifieduploads%2F{{this.shop_image}}?alt=media">
+       <h3>{{shop.name}}</h3>    
+            <p>&#8377 {{shop.price}} /-</p>
+            <div class="unava">
+                <div class="border">
+                <h1>Unavailable</h1>
+                </div>
+            </div>
+            
+<div class="btn-group">
+    
+ <a href="/ShopDetail/{{shop._id}}" class="btn"> View Detail <i class="fa fa-eye" aria-hidden="true"></i></a>
+ {{#ifCond shop.type 'Guest House'}}
+ <a href="/Resortbooking/{{shop._id}}" class="btn"> Book Now <i class="fa fa-book" aria-hidden="true"></i></a>
+ {{else}}
+ <a href="/book/{{shop._id}}" class="btn"> Book Now <i class="fa fa-book" aria-hidden="true"></i></a>
+ {{/ifCond}}
+</div>
+     </div>
+    {{/each}}
+    </div>
+     </section> 
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="/js/nameSearch.js"></script>
+<script src="/js/location.js"></script> 
+<script>
+   var date = new Date();
+   var tdate = date.getDate();
+   var month = date.getMonth() + 1;
+   if(tdate < 10){
+       tdate = '0'+ tdate
+   }
+   if(month < 10){
+       month = '0' + month
+   }
+   var year = date.getUTCFullYear();
+   var mindate = year + "-" + month + "-" + tdate
+   document.getElementById('mydate1').setAttribute('min',mindate)
+   document.getElementById('mydate1').value = mindate
+</script>   
+<script>
+    {{#each doc as |val|}}
+    {{#ifCond val.status "paid"}}
+    var input = document.getElementById('mydate1').value
+    //localStorage.getItem('txtValue',input)
+      if(input == '{{val.event_date}}'){
+    var shopElement = document.getElementById("{{val.cart._id}}")
+    shopElement.childNodes[7].style.display="unset"
+    shopElement.childNodes[9].style.display="none"
+
+    //shopElement.childNodes[9].remove() 
+      }
+      var date = document.getElementById('mydate1').value
+    localStorage.setItem('txtValue',date)
+    {{/ifCond}}
+    {{/each}}    
+</script>
+<script>
+    document.getElementById('mydate1').addEventListener('change',
+    function(e)
+        {
+            {{#each  services as |shop|}} 
+                 var shopElement = document.getElementById("{{shop._id}}")  
+                 shopElement.childNodes[7].style.display="none"
+                 shopElement.childNodes[9].style.display='flex'
+            {{/each}}
+            
+            {{#each doc as |val|}}
+    {{#ifCond val.status "paid"}}
+    
+    var input = document.getElementById('mydate1').value
+      if(input == '{{val.event_date}}'){
+        var shopElement = document.getElementById("{{val.cart._id}}")        
+        shopElement.childNodes[7].style.display="unset"
+        shopElement.childNodes[9].style.display="none"
+
+        //shopElement.childNodes[9]
+      }
+    {{/ifCond}}
+    {{/each}} 
+    //getting the values
+    var date = document.getElementById('mydate1').value
+    localStorage.setItem('txtValue',date)
+    e.preventDefault()  
+        })
+</script>
+<script>
+    const search = document.getElementById("mysearch1");
+const productName = document.querySelectorAll(".prod-grid h3");
+
+// A BETTER WAY TO FILTER THROUGH THE PRODUCTS
+search.addEventListener("keyup", filterProducts);
+
+
+function filterProducts(e) {
+    const text = e.target.value.toLowerCase();
+    
+    // console.log(productName[0]);
+    productName.forEach(function(product) {
+        const item = product.firstChild.textContent;
+        if (item.toLowerCase().indexOf(text) != -1) {
+            product.parentElement.style.display = "block"
+        } else {
+            product.parentElement.style.display = "none"
+        }
+    })
+}
+
+
+</script>
+</body>
+</html>

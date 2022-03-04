@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event details</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Detail</title>
+    <link rel="stylesheet" href="/css/deliverydetail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="/icons/razorpay-logo-white.svg" alt="logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="card">
+            <h5 class="card-header">Event Detail </h5>
+            <div class="total">
+                <span>Amount:</span>
+                <span> &#8377</span>
+                <span>{{services.price}}</span>
+            </div>
+            <form action="/bookNow/{{services._id}}" method="post">
+                <div class="form-group">
+                    <label class="required" for="name">Name</label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+                <div class="row">
+                <div class="form-group">
+                    <label class="required" for="email">Email</label>
+                    <input type="email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="phone">Phone No</label>
+                    <input type="number" name="phone" class="form-input" required>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="event_date">Date</label>
+                    <input type="date" name="event_date" id="mydate1" class="form-input" readonly required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="event_type">Event type</label>
+                    <input type="text" name="event_type"  class="form-input" required>
+                </div>
+                <div class="row">
+                <div class="form-group">
+                    <label class="required" for="from_address">From</label>
+                    <textarea name="from_address" id="from" cols="30" rows="10" class="textarea" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="to_address">to</label>
+                    <textarea name="to_address" id="to" cols="30" rows="10" class="textarea"></textarea>
+                </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-reset effect01" type="reset"><span> Reset All</span></button>
+                    <button class="btn-submit effect02" type="submit"><span> Make Payment</span></button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+   document.getElementById("mydate1").value=localStorage.getItem("txtValue");
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/editshop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+<body>    
+    <div class="container">
+        <div class="content">
+            <div class="card">
+            <h5 class="card-header">Add verified Shop </h5>
+            <form action="/addCars" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="required" for="name">Car Name</label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+                <div class="row">
+                <div class="form-group">
+                    <label class="required" for="email">Email</label>
+                    <input type="email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="phone">Phone No</label>
+                    <input type="number" name="phone" class="form-input" required>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="price">Price</label>
+                    <input type="text" name="price" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="address">Address</label>
+                    <textarea name="address" id="from" cols="30" rows="10" class="textarea" required></textarea>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for="Car_image" class="required">Car Image</label>
+                    <input type="file" name="Car_image" class="uploadbox" required>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-reset effect01" type="reset"><span> Reset</span></button>
+                    <button class="btn-submit effect02" type="submit"><span> Add Shop</span></button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

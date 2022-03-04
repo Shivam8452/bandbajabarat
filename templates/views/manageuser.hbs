@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+<body>
+    <section id="sidebar">
+		<a href="#" class="brand">
+			<i class="fa fa-music"></i>
+			<span class="text">BandBazaBarat</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/admin-manageuser">
+					<i class='fa fa-group' ></i>
+					<span class="text">Users</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin-manageShops">
+					<i class='fa fa-bank'></i>
+					<span class="text">Verified Services</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin-manageCars">
+					<i class='fa fa-address-book'></i>
+					<span class="text">Manage Cars</span>
+				</a>
+			</li>
+            <li>
+				<a href="/admin-manageBookings">
+					<i class='fa fa-address-book'></i>
+					<span class="text">Bookings</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin-managefeedbacks">
+					<i class='fa fa-comments' ></i>
+					<span class="text">Feedbacks</span>
+				</a>
+			</li>
+			
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/admin-manageAllShops">
+					<i class='fa fa-bank'></i>
+					<span class="text">All Shops</span>
+				</a>
+				<a href="#" class="logout">
+					<i class='fa fa-sign-out' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+            
+        <div>
+			<i class='fa fa-bars' ></i>
+        </div>
+        <div class="flex">
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="profile">
+				<img src="/images/logo1.png">
+			</a>
+        </div>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class="fa fa-angle-right"></i></li>
+						<li>
+							<a class="active" href="#">{{title}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+	<div class="table-data">
+      <div class="order">
+					<div class="head">
+						<h3>Users</h3>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Verification Status</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+                            {{#each user}}
+							<tr>
+								<td>
+									<img src="/images/logo1.png">
+									<p>{{this.Name}}</p>
+								</td>
+								<td>{{this.Email}}</td>
+								<td>{{this.isVerified}}</td>
+								<td><a href="/delete/{{this._id}}"><i class="fa fa-trash-o"></i></a></td>
+							</tr>
+                            {{/each}}
+						</tbody>
+					</table>
+				</div>
+                </div>
+
+		</main>
+	</section>
+<script>
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+allSideMenu.forEach(item=> {
+	const li = item.parentElement;
+
+	item.addEventListener('click', function () {
+		allSideMenu.forEach(i=> {
+			i.parentElement.classList.remove('active');
+		})
+		li.classList.add('active');
+	})
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .fa.fa-bars');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+	sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+	if(this.checked) {
+		document.body.classList.add('dark');
+	} else {
+		document.body.classList.remove('dark');
+	}
+})
+    </script>
+</body>
+</html>

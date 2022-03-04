@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Program</title>
+    <link rel="stylesheet" href="/css/joinprog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="heading">
+        <h1>BandBajaBarat</h1>
+        <p>Makes Easy!</p>
+    </div>
+    <div class="section-heading">
+        <h2>Partner With Us</h2>
+    </div>
+    <div class="services-charge">
+      <h3>Service Charge:</h3>
+      <span> &#8377 999 /-</span>
+    </div>
+    <div class="form">
+        <form action="/partner" method="post" enctype="multipart/form-data">
+            <div class="steps">
+                <h3>1.Shop owner Details</h3>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="input-group">
+                        <label for="name" class="required">name</label>
+                        <input type="text" name="name" id="name" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" name="email" id="email" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="phone" class="required">phone no</label>
+                        <input type="number" name="phone" id="phone" required/>
+                      </div>
+                  </div>
+                <div class="column">
+                            <div class="input-group ">
+                                <label for="img_proof" class="required">Upload Id image</label>
+                                <input type="file" name="img_proof" id="proof" class="img" required/>
+                            </div>
+                            <div class="input-group">
+                                <label for="address" class="required">Complete address</label>
+                                <textarea name="address" id="address" cols="30" rows="10" required></textarea>
+                            </div>
+                </div>
+            </div>
+            <div class="steps">
+                <h3>2.Shop Details</h3>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="input-group">
+                        <label for="shop_name" class="required">Shop name</label>
+                        <input type="text" name="shop_name" id="shop" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="price" class="required">Price( in &#8377 ):</label>
+                        <input type="number" name="price" id="price" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="type" class="required">Choose a type</label>
+                    <select name="type"  required>
+                        <option value="Dj">DJ</option>
+                        <option value="Car">Car</option>
+                        <option value="Decoration">Flower Decoration</option>
+                        <option value="Band">Band & Bhangra</option>
+                        <option value="Guest House">Guest House & Resort</option>
+                        <option value="Road Light">Road Light</option>
+                        <option value="Rath">Rath</option>
+                        <option value="Parlour">Beauty Parlour</option>
+                    </select>
+                      </div>
+                      </div>
+                <div class="column">
+                    <div class="input-group">
+                        <label for="distance">distance(in KM)</label>
+                        <input type="number" name="distance" id="distance" placeholder="How far will you go in a booking" required/>
+                      </div>
+                      <div class="input-group ">
+                        <label for="Banner_img" class="required">Upload Banner image</label>
+                        <input type="file" name="Banner_img" id="Banner" class="img" required/>
+                      </div>
+                </div>
+            </div>
+            <div class="steps">
+                <h3>3.Bank details</h3>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="input-group">
+                        <label for="bank_name" class="required">bank name</label>
+                        <input type="text" name="bank_name" id="b-name" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="branch" class="required">branch name</label>
+                        <input type="text" name="branch" id="br-name" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="ac_no" class="required">A/C No</label>
+                        <input type="number" name="ac_no" id="ac" required/>
+                      </div>
+                      </div>
+                <div class="column">
+                    <div class="input-group">
+                        <label for="ifsc" class="required">IFSC code</label>
+                        <input type="text" name="ifsc" id="ifsc" required/>
+                      </div>
+                      <div class="input-group">
+                        <label for="holder_name" class="required">Account holder Name</label>
+                        <input type="text" name="holder_name" id="h-name" required/>
+                      </div>
+                      
+                      <div class="input-group">
+                        <label for="passbook_img" class="required">Upload Passbook image</label>
+                        <input type="file" name="passbook_img" id="passbook" class="img" required/>
+                      </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="reset" class="btn-reset">RESET</button>
+                    <button type="submit" class="btn-submit">Proceed To Payment</button>
+                    
+                </div>
+            </form>
+    </div>
+</body>
+</html>

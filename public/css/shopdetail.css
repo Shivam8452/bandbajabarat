@@ -1,0 +1,250 @@
+*
+{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  text-decoration:none;
+  border:0;
+  outline:0;
+  list-style:none;
+}
+html,body
+{
+  width:100%;
+  height:100%;
+ 
+}
+body
+{
+  background:#f6f6f6;
+  font-family: 'Baloo Bhai 2', 'cursive';
+  height:100%;
+}
+ .icerik
+{
+  display:flex;
+  width:90%;
+  justify-content:space-between;
+  height:calc(100% - 15vh);
+  margin:0 5%;
+}
+ .icerik .sol
+{
+  width:40%;
+ 
+  padding:45px 35px;
+  height:90%;
+}
+ .icerik .sol  h3
+{
+  margin:15px 0;
+  color: rgb(249, 48, 66);
+}
+ .icerik .sol  h5
+{
+  margin:15px 0;
+  color:#565555;
+line-height:20px;
+}
+ .icerik .sol .para
+{
+  margin:30px 0;
+  font-size:30px;
+font-weight:bolder;
+}
+ .icerik .sol .alacaklı
+{
+  position:relative;
+  position: relative;
+    display: flex;
+    width: 126%;
+}
+ .icerik .sol .alacaklı input
+{
+  width:35%;
+  border-radius:15px;
+  height:55px;
+  text-align:center;
+  font-size:16px;
+  font-weight:bolder;
+  margin-right:25px;
+  background:#eee;
+  box-shadow:0 0 16px rgba(0,0,0, .50);
+  border:1px solid #ddd;
+
+}
+ .icerik .sol .alacaklı input:hover
+{
+  box-shadow:0 0 2px #ddd;
+}
+ .icerik .sol .alacaklı label:nth-child(1)
+{
+  
+    content: "+";
+    width: 40px;
+    height:43px;
+    position: absolute;
+    background: #ddd;
+cursor:pointer;
+  font-size:40px;
+  
+  line-height:36px;
+  text-align:center;
+    border-radius: 27%;
+    z-index: 1;
+    top: 5px;
+  left:5px
+}
+ .icerik .sol .alacaklı label
+{
+  cursor:pointer;
+    content: "";
+    width: 40px;
+    height:43px;
+    position: absolute;
+    background: #ddd;
+
+  font-size:30px;
+  
+  line-height:36px;
+  text-align:center;
+    border-radius: 27%;
+    z-index: 1;
+    top: 5px;
+  right:185px;
+}
+ .icerik .sol .alacaklı button
+{
+  padding:20px 25px;
+  width:40%;
+      background: rgb(249, 48, 66);
+  color:#fff;
+  transition:.5s all;
+  border-radius:10px;
+  cursor:pointer;
+}
+ .icerik .sol .alacaklı button:hover
+{
+  box-shadow:0  0 16px rgb(249, 48, 66);
+transition:.5s all;}
+ .icerik .sol .alacaklı i
+{
+  margin-right:10px;
+}
+ .icerik .sag
+{
+  width:58%;
+  
+  height:90%;  padding:45px 0;
+position:relative;
+
+
+}
+ .icerik .sag img
+{
+  width:100%;
+  border-radius:20px;
+  height:auto;
+}
+ .icerik .onz
+{
+  content:"";
+  width:15px;
+  height:15px;
+  top:60%;
+  left:79%;
+  
+  background:#fff;
+  border-radius:50%;
+  position:absolute;
+  cursor:pointer;
+}
+ .icerik .onz:before
+{
+  content:"";
+    border:2px solid #fff;
+  width:100%;
+top: -2px;
+  left:-2px;
+  border-radius:50%;
+  position:absolute;
+  height:100%;
+  animation: 1s border infinite linear;
+}
+.sag .onz:hover .tool-tip
+{
+opacity:1;  transition:.5s all;
+  visibility:"visible";
+  
+}
+.tool-tip
+{ width:fit-content;
+height:auto;
+  opacity:0;
+  visibility:"hidden";
+  padding:5px;
+  display:flex;
+  margin-top:-45px;
+    margin-left:-22px;
+  transition:.5s all;
+  justify-content:center;
+  align-items:center;
+border-radius:4px;
+background:rgba(255,255,255, .70);}
+.tool-tip:before
+{
+  content:"";
+  width:0;
+  height:0;
+  border:8px solid transparent;
+  border-top-color:rgba(255,255,255, .70);
+  position:absolute;
+  bottom:13px;
+}
+@keyframes border
+{
+  0%
+  {
+    opacity:.5;
+    transform:scale(1);
+  }
+  100%
+  {
+    transform:scale(3);
+    opacity:0;
+  }
+  
+}
+
+@media  (max-width:768px)
+  {
+     .icerik
+    {
+      display:flex;
+      flex-direction:column-reverse;
+      height:auto;
+    }
+     .icerik .sol .alacaklı
+    {
+      width:100%;
+    }
+     .icerik .sol ,.sag
+    {
+      width:100% !important;
+    }
+      .ust .menu , .sepet
+    {
+      display:none !important;
+    }
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+.card .fa{
+    color: rgb(249, 48, 66);
+    margin-right: 10px;
+    font-size: 20px;
+}

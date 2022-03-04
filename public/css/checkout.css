@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Baloo Bhai 2', 'cursive';
+}
+.navbar{
+    display: flex;
+    justify-content: center;
+    background-color: #22527b;
+    padding: 10px;
+}
+.navbar img{
+    height: 50px;
+  }
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.content{
+    border: 2px solid #afaeae;
+    border-radius: 7px;
+    width: 400px;
+    height: 280px;
+}
+.card-header{
+    border-bottom: 2px solid #afaeae;
+    width: 100%;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    padding-left: 15px;
+    font-weight: bold;
+}
+.card-text{
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 15px;
+}
+.item{
+    display: flex;
+    padding: 5px;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.rcpt-head{
+    font-size: 14px;
+    font-weight: bolder;
+}
+.rcpt-value{
+    font-size: 12px;
+    padding-left: 40px;
+}
+.btn{
+    width: 70px;
+    height: 35px;
+    font-size: 12px;
+    margin: 15px;
+    background-color: #1175cc;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #1175cc;
+    cursor: pointer;
+
+}
+.btn:hover,
+.btn:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em #1175cc;
+  transform: translateY(-0.25em);
+}
+@media(max-width:455px){
+    
+    .navbar img{
+      height: 30px;
+    }
+  }
+  

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="navigation sticky">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="#!">BandBajaBarat</a>
+    </div>
+    <nav>
+      <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/index1">Home</a>
+        </li>
+        <li>
+          <a href="/index1">About</a>
+        </li>
+        <li>
+          <a href="#!">Services</a>
+          <ul class="navbar-dropdown">
+            <li>
+              <a href="/Cars">Cars</a>
+            </li>
+            <li>
+              <a href="/services">Dj</a>
+            </li>
+            <li>
+              <a href="/servuces">More</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/index1">Contact</a>
+        </li>
+        <li>
+          <a href="/index1">Quick Links</a>
+        </li>
+        <li>
+          <a href="/logout">logout</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+    <div class="profile">
+        <div class="container">
+            <h1>User Profile</h1>
+            <p>
+                Name:<h4>{{user.Name}}</h4>
+                Email:<h4>{{user.Email}}</h4>
+            </p>
+            <hr>
+            <h2>Completed Bookings</h2>
+            {{#each data}}
+            {{#ifCond this.status "paid"}}
+            {{#ifCond this.order_status "Completed"}}
+                <div class="content-body">
+                    <ul class="list-group">
+                        <li class="list-item">
+                            {{this.cart.name}}             
+                        </li>
+                    </ul>
+
+                    <div class="footer">
+                        <span>total price:</span>
+                        <span> &#8377 {{this.cart.totalPrice}} {{this.cart.price}} </span>
+    
+                    </div>
+                
+                </div>
+                {{/ifCond}}
+                {{/ifCond}}
+            {{/each}}
+            {{#each doc}}
+            {{#ifCond this.status "paid"}}
+            {{#ifCond this.order_status "Completed"}}
+                <div class="content-body">
+                    <ul class="list-group">
+                        <li class="list-item">
+                        {{#each this.items}}
+                            <span>{{this.item.name}}</span>
+                            <span class="badge">{{this.qty}}</span>
+                        {{/each}}            
+                        </li>
+                    </ul>
+
+                    <div class="footer">
+                        <span>total price:</span>
+                        <span> &#8377 {{this.cart.totalPrice}} </span>
+    
+                    </div>
+                
+                </div>
+                {{/ifCond}}
+                {{/ifCond}}
+            {{/each}}
+       </div>
+    </div>
+</body>
+<script src="https://use.fontawesome.com/387de56559.js"></script>
+<script type="text/javascript" src="/js/Jquery.js"></script>
+<script>
+    (function($) { 
+  $(function() { 
+
+    //  open and close nav 
+    $('#navbar-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+
+
+    // Hamburger toggle
+    $('#navbar-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+
+
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.navbar-dropdown').slideToggle("slow");
+
+      // Close dropdown when select another dropdown
+      $('.navbar-dropdown').not($(this).siblings()).hide("slow");
+      e.stopPropagation();
+    });
+
+
+    // Click outside the dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.navbar-dropdown').hide();
+    });
+  }); 
+})(jQuery); 
+</script>
+</html>

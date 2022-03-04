@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <img src="/icons/razorpay-logo-white.svg" alt="logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="content">
+        <div class="card">
+        <h5 class="card-header">Confirm Booking</h5>
+
+        <div class="card-body">
+            <p class="card-text">Thank you for taking this decision</p>
+
+            <dl class="rcpt">
+            <div class="item">
+                <dt class="rcpt-head">Order ID</dt>
+                <dd class="rcpt-value">{{shopData.orderId}}</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">Currency</dt>
+                <dd class="rcpt-value">{{shopData.currency}}</dd>
+            </div>
+            <div class="item">
+                <dt class="rcpt-head">Amount</dt>
+                <dd class="rcpt-value">&#8377 999 /-</dd>
+            </div>
+            </dl>
+            <button type="submit" class="btn" onclick="checkout(event)">Checkout</button>
+        </div>
+    </div>
+    <form id="paymentVerifyForm" action="/verify" method="POST">
+		<input name="razorpay_payment_id" type="hidden" id="razorpay_payment_id" />
+		<input name="razorpay_order_id" type="hidden" id="razorpay_order_id"/>
+		<input name="razorpay_signature" type="hidden" id="razorpay_signature"/>
+	</form>
+</div>
+</div>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	function checkout(event) {
+		const razorpayKeyId = '{{razorpayKeyId}}'
+		const orderId = "{{shopData.orderId}}"
+		const options = {
+			"key": razorpayKeyId,
+			"currency": "INR",
+			"name": "BandBazaBarat",
+			"description": "Pay and partner with us",
+			"image": "/images/logo1.png",
+			"order_id": orderId,
+			"handler": function (response){
+				document.getElementById('razorpay_payment_id').value= response.razorpay_payment_id;
+				document.getElementById('razorpay_order_id').value= response.razorpay_order_id;
+				document.getElementById('razorpay_signature').value= response.razorpay_signature;
+				document.getElementById("paymentVerifyForm").submit();
+			},
+			"modal": {
+				ondismiss: function() {
+					alert(`Payment Failed`)
+				}
+			},
+			"theme": {
+				"color": "#22527b"
+			}
+		};
+		const razorpay = new Razorpay(options);
+		razorpay.open();
+		event.preventDefault();
+	}
+</script>
+</html>

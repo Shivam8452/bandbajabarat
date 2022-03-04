@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="/css/cars.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <section class="search">
+    <div class="search-box">
+    <button class="btn-search"><i class="fa fa-search"></i></button>
+    <input type="text" id="search1" class="input-search" placeholder="Type to Search...">
+  </div>
+  {{#if message}}
+    <div class="{{message.type}} show">
+        <span class="fa fa-exclamation-circle"></span>
+        <span class="msg">{{message.type}}: {{message.intro}}</span>
+        <span class="close-btn">
+            <span  class="fa fa-times" onclick='Close()'></span>
+        </span>
+    </div>
+    {{/if}} 
+        <div class="cart">
+            <a href="/cart"><img src="/icons/car.png" alt="cart"></a>
+            <span class="item-total" id="cartCounter">{{session.cart.totalQty}}</span>
+        </div>
+    </section>
+   
+<div class="section-heading">
+        <h1>Cars</h1>
+    </div>
+
+
+<div class="container">
+  <!--Product Grid-->
+  <div id="div1">
+    <section class="section-grid">
+    <div class="grid-prod">
+        {{#each  services as |shop|}} 
+      <div id="{{shop._id}}" class="prod-grid">
+         <img src="https://firebasestorage.googleapis.com/v0/b/bandbajabarat-684ea.appspot.com/o/Caruploads%2F{{shop.Car_image}}?alt=media">
+       <h3>{{shop.name}}</h3>    
+            <p>&#8377 {{shop.price}} /-</p>
+<div class="btn-group">
+ <a href="/CarDetail/{{shop._id}}" class="btn"> View Detail <i class="fa fa-eye" aria-hidden="true"></i></a>
+ <a href="/add-to-cart/{{shop._id}}" class="btn"> Add to List <i class="fa fa-book" aria-hidden="true"></i></a>
+</div>
+     </div>
+    {{/each}}
+    </div>
+     </section> 
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+    const search = document.getElementById("search1");
+const productName = document.querySelectorAll(".prod-grid h3");
+
+// A BETTER WAY TO FILTER THROUGH THE PRODUCTS
+search.addEventListener("keyup", filterProducts);
+
+
+function filterProducts(e) {
+    const text = e.target.value.toLowerCase();
+    
+    // console.log(productName[0]);
+    productName.forEach(function(product) {
+        const item = product.firstChild.textContent;
+        if (item.toLowerCase().indexOf(text) != -1) {
+            product.parentElement.style.display = "block"
+        } else {
+            product.parentElement.style.display = "none"
+        }
+    })
+}
+
+
+</script>
+<script>
+        setTimeout(function(){
+        $('.Warning').removeClass("show");
+        $('.Warning').addClass('hide')
+
+    },5000)
+    $('.close-btn').click(function(){
+        $('.Warning').addClass("hide");
+        $('.Warning').removesClass('show')
+    })
+    setTimeout(function(){
+        $('.Success').removeClass("show");
+        $('.Success').addClass('hide')
+
+    },5000)
+    $('.close-btn').click(function(){
+        $('.Success').addClass("hide");
+        $('.Success').removesClass('show')
+    })
+</script>
+</body>
+</html>

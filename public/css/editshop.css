@@ -1,0 +1,326 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Baloo Bhai 2', 'cursive';
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.content{
+    height: 100%;
+    width: 600px;
+    border: 2px solid #afaeae;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
+}
+.card-header{
+    border-bottom: 2px solid #afaeae;
+    width: 100%;
+    font-size: 1.3rem;
+    background-color: #f0f0f0;
+    padding: 5px;
+    padding-left: 15px;
+    font-weight: bold;
+}
+.card-text{
+    font-size: 1.2rem;
+    padding: 5px;
+    padding-left: 15px;
+}
+.total{
+  margin: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.total span:nth-child(2){
+  color: #ff3636;
+  font-size: 2rem;
+}
+.total span:nth-child(3){
+  color: #ff3636;
+  font-size: 2rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+label{
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  label.required{
+    position: relative; 
+  }
+  label.required:after{
+    content: '*';
+    margin-left: 2px;
+    color: #b90000;
+  }
+.form-input{
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+    font-family: 'Baloo Bhai 2', 'cursive';
+    font-size: 1.1rem;
+    padding: 12px;
+}
+.form-input:focus{
+    border: 1px solid rgb(11, 78, 179);
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+select{
+  display: block;
+  background-color: #f0f0f0;
+  border: none;
+  outline:none;
+  width: 100%;
+  height: 45px;
+  text-transform: uppercase;
+}
+select:focus{
+  border: 1px solid rgb(11, 78, 179);
+}
+.textarea{
+    height: 150px;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+.textarea:focus{
+    border: 1px solid rgb(11, 78, 179);
+}
+.uploadbox{
+    font-size: 16px;
+    background: var(--light);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+::-webkit-file-upload-button{
+    color: #FFF;
+    background: #ff3636;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 0 1px rgba(0,0,0,0.6);
+    cursor: pointer;
+  }
+.btn-group{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+.btn-reset {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 5px;
+  }
+  .btn-reset:hover {
+    text-decoration: none;
+  }
+  
+  
+  .effect01 {
+    color: #FFF;
+    border: 4px solid #ff3636;
+    box-shadow:0px 0px 0px 1px #ff3636 inset;
+    background-color: #ff3636;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  .effect01:hover {
+    border: 4px solid #666;
+    background-color: #FFF;
+    box-shadow:0px 0px 0px 4px #EEE inset;
+  }
+  
+  /*btn_text*/
+  .effect01 span {
+    transition: all 0.2s ease-out;
+    z-index: 2;
+  }
+  .effect01:hover span{
+    letter-spacing: 0.13em;
+    color: #333;
+  }
+  .effect01:after {
+    background: #FFF;
+    border: 0px solid #ff3636;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .8;
+    position: absolute;
+    top: -50px;
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+    width: 50px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
+    z-index: 1;
+  }
+  .effect01:hover:after {
+    background: #FFF;
+    border: 20px solid #ff3636;
+    opacity: 0;
+    left: 120%;
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+.btn-submit {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 5px;
+  }
+  .btn-submit:hover {
+    text-decoration: none;
+  }
+  
+  
+  .effect02 {
+    color: #FFF;
+    border: 4px solid #22527b;
+    box-shadow:0px 0px 0px 1px #22527b inset;
+    background-color: #22527b;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  .effect02:hover {
+    border: 4px solid #666;
+    background-color: #FFF;
+    box-shadow:0px 0px 0px 4px #EEE inset;
+  }
+  
+  /*btn_text*/
+  .effect02 span {
+    transition: all 0.2s ease-out;
+    z-index: 2;
+  }
+  .effect02:hover span{
+    letter-spacing: 0.13em;
+    color: #333;
+  }
+  .effect02:after {
+    background: #FFF;
+    border: 0px solid #22527b;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .8;
+    position: absolute;
+    top: -50px;
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+    width: 50px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
+    z-index: 1;
+  }
+  .effect02:hover:after {
+    background: #FFF;
+    border: 20px solid #22527b;
+    opacity: 0;
+    left: 120%;
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+
+	#content {
+		width: calc(100% - 60px);
+		left: 200px;
+	}
+
+	#content nav .nav-link {
+		display: none;
+	}
+}
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+	#content nav form .form-input input {
+		display: none;
+	}
+
+	#content nav form .form-input button {
+		width: auto;
+		height: auto;
+		background: transparent;
+		border-radius: none;
+		color: var(--dark);
+	}
+
+	#content nav form.show .form-input input {
+		display: block;
+		width: 100%;
+	}
+	#content nav form.show .form-input button {
+		width: 36px;
+		height: 100%;
+		border-radius: 0 36px 36px 0;
+		color: var(--light);
+		background: var(--red);
+	}
+
+	#content nav form.show ~ .notification,
+	#content nav form.show ~ .profile {
+		display: none;
+	}
+
+	#content main .box-info {
+		grid-template-columns: 1fr;
+	}
+
+	#content main .table-data .head {
+		min-width: 420px;
+	}
+	#content main .table-data .order table {
+		min-width: 420px;
+	}
+	#content main .table-data .todo .todo-list {
+		min-width: 420px;
+	}
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link rel="stylesheet" href="/css/subadmin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="table-data">
+      <div class="order">
+					<div class="head">
+						<h3>Bookings</h3>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Booking ID</th>
+								<th>User</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Date</th>
+								<th>Event Type</th>
+								<th>From Address</th>
+								<th>To Address</th>
+								<th>Change Status</th>
+								<th>Updated Status</th>
+							</tr>
+						</thead>
+						<tbody>
+                            {{#each data}}
+                            {{#ifCond this.status "paid"}}
+							
+							<tr class="{{this.cart._id}}  hide" >
+								<td>{{this._id}}</td>
+								<td>
+									
+									<p>
+										{{this.user.Name}}
+										<br>
+										{{this.user.Email}}
+									</p>
+
+								</td>
+								<td>{{this.name}}</td>
+								<td>{{this.email}}</td>
+								<td>{{this.phone}}</td>
+								<td>{{this.event_date}}</td>
+								<td>{{this.event_type}}</td>
+								<td>{{this.from_address}}</td>
+								<td>{{this.to_address}}</td>
+                                <td>
+									<form action="/subadmin/bookingStatus/change" method="post" >
+									<input type="hidden" name="orderId" value="{{this._id}}">
+									<select name="order_status" onchange="this.form.submit()">
+										<option value="Booked">Booked</option>
+										<option value="Cancelled">Cancelled</option>
+										<option value="Completed">Completed</option>
+									</select>
+									</form>
+						
+								</td>
+								<td>{{this.order_status}}</td>
+
+							</tr>
+                            {{/ifCond}}
+                            {{/each}}
+						</tbody>
+					</table>
+				</div>
+            </div>
+		
+</body>
+<script>
+	var elements = document.getElementsByClassName('{{user._id}} hide');
+	while(elements.length > 0){
+    elements[0].classList.remove('hide');
+}
+	
+</script>
+</html>
