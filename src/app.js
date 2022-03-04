@@ -876,7 +876,7 @@ const storage = FirebaseStorage({
         credentials: {
           clientEmail: process.env.CLIENT_Email,
           projectId: process.env.project_Id,
-          privateKey: process.env.PRIVATE_Key,
+          privateKey: process.env.PRIVATE_Key.replace(/\\n/g, '\n'),
         },
         directoryPath:'uploads',
         public:true
@@ -1092,7 +1092,7 @@ const SingleStorage = FirebaseStorage({
         credentials: {
           clientEmail: process.env.CLIENT_Email,
           projectId: process.env.project_Id,
-          privateKey: process.env.PRIVATE_Key,
+          privateKey: process.env.PRIVATE_Key.replace(/\\n/g, '\n'),
         },
         directoryPath:'verifieduploads',
         public:true
@@ -1131,7 +1131,7 @@ const CarStorage = FirebaseStorage({
         credentials: {
           clientEmail: process.env.CLIENT_Email,
           projectId: process.env.project_Id,
-          privateKey: process.env.PRIVATE_Key,
+          privateKey: process.env.PRIVATE_Key.replace(/\\n/g, '\n'),
         },
         directoryPath:'Caruploads',
         public:true
